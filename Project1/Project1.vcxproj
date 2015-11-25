@@ -70,8 +70,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\nadya\Documents\Visual Studio 2015\Projects\Project1\Project1\SDL2-devel-2.0.3-VC\SDL2-2.0.3\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\nadya\Documents\Visual Studio 2015\Projects\Project1\Project1\SDL2-devel-2.0.3-VC\SDL2-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Nick\Documents\SDL\include;C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Nick\Documents\SDL\lib\win32;C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Users\Nick\Documents\SDL\include;C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Nick\Documents\SDL\lib\win32;C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -81,8 +93,8 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL.lib;SDLmain.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -93,6 +105,8 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -107,6 +121,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -121,6 +137,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
