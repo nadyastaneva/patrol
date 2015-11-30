@@ -70,20 +70,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Nick\Documents\SDL\include;C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Nick\Documents\SDL\lib\win32;C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\_Patrol NBU Game\SDL\include;E:\_Patrol NBU Game\SDL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\_Patrol NBU Game\SDL\lib\win32;E:\_Patrol NBU Game\SDL\lib\win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\_Patrol NBU Game\SDL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\_Patrol NBU Game\SDL\lib\win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Users\Nick\Documents\SDL\include;C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Nick\Documents\SDL\lib\win32;C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\_Patrol NBU Game\SDL\include;C:\Users\Nick\Documents\SDL\include;C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\_Patrol NBU Game\SDL\lib\win32;C:\Users\Nick\Documents\SDL\lib\win32;C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -106,7 +106,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

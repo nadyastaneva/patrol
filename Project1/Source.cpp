@@ -14,12 +14,12 @@ int main(int argc, char* argv[])
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 		cout << "Video Initialization Error: " << SDL_GetError() << endl;
 	else {
-		window = SDL_CreateWindow("SDL Coding Is F**HARD ", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 960, 540, SDL_WINDOW_SHOWN);
+		window = SDL_CreateWindow("SDL Coding Is F**HARD ", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, SDL_WINDOW_SHOWN);
 		if (window == NULL)
 			cout << "Window Creation Error : " << SDL_GetError() << endl;
 		else {
 			windowSurface = SDL_GetWindowSurface(window);
-			imageSurface = SDL_LoadBMP("patrol.bmp");
+			imageSurface = SDL_LoadBMP("street2.bmp");
 			if (imageSurface == NULL)
 				cout << "Image loading Error: " << SDL_GetError() << endl;
 			else {
