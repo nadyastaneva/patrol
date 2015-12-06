@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Win7\Desktop\SDL\include;C:\Users\Nick\Documents\SDL\SDL2_image-2.0.0\include;C:\Users\Nick\Documents\SDL\include;E:\_Patrol NBU Game\SDL\include;E:\_Patrol NBU Game\SDL\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Win7\Desktop\SDL\lib;C:\Users\Nick\Documents\SDL\SDL2_image-2.0.0\lib\x86;C:\Users\Nick\Documents\SDL\lib\win32;E:\_Patrol NBU Game\SDL\lib\win32;E:\_Patrol NBU Game\SDL\lib\win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL\include;E:\_Patrol NBU Game\SDL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;E:\_Patrol NBU Game\SDL\lib\win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>E:\_Patrol NBU Game\SDL\include;$(IncludePath)</IncludePath>
@@ -82,21 +82,21 @@
     <LibraryPath>C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Users\Win7\Desktop\SDL\include;C:\Users\Nick\Documents\SDL\SDL2_image-2.0.0\include;C:\Users\Nick\Documents\SDL\include;E:\_Patrol NBU Game\SDL\include;C:\Users\Nick\Documents\SDL\include;C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Win7\Desktop\SDL\lib;C:\Users\Nick\Documents\SDL\SDL2_image-2.0.0\lib\x86;C:\Users\Nick\Documents\SDL\lib\win32;E:\_Patrol NBU Game\SDL\lib\win32;C:\Users\Nick\Documents\SDL\lib\win32;C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL\include;C:\Users\Nick\Documents\SDL\include;C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;C:\Users\Nick\Documents\SDL\lib\win32;C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Nick\Documents\SDL\SDL2_image-2.0.0\include;C:\Users\Nick\Documents\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Win7\Desktop\SDL\include;C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\Users\Nick\Documents\SDL\lib\win32;C:\Users\Nick\Documents\SDL\SDL2_image-2.0.0\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -118,7 +118,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Nick\Documents\SDL\SDL2_image-2.0.0\include;C:\Users\Nick\Documents\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Win7\Desktop\SDL\include;C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -126,7 +126,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\Users\Nick\Documents\SDL\lib\win32;C:\Users\Nick\Documents\SDL\SDL2_image-2.0.0\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

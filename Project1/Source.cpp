@@ -30,6 +30,9 @@ int main(int argc, char* argv[])
 	SDL_Surface* car_surface = NULL;
 	SDL_Texture* car_texture = NULL;
 	SDL_Rect car_destination = { 0 };
+	int car_x = 0, car_y = 0;
+	int car_xvel = 0, car_yvel = 0;
+
 	
 
 	SDL_Init(SDL_INIT_VIDEO);
@@ -104,24 +107,56 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	
 
-
-
-
-
-
-	bool runs = true;
-	SDL_Event action;
-
-	while (runs)
-	{
-		while (SDL_PollEvent(&action) != 0)
+		bool isRunning = true;
+		SDL_Event event;
+		while (isRunning)
 		{
-			if (action.type == SDL_QUIT)
-				runs = false;
-		}
+			while (SDL_PollEvent(&event) != 0)
+			{
+				if (event.type == SDL_QUIT)
+				{
+					isRunning = false;
+				}
+				else
+				{
+					switch (event.type) {
+					case SDL_KEYDOWN:
+						switch (event.key.keysym.sym) {
+						case SDLK_LEFT:car_xvel = -1; break;
+						case SDLK_a:car_xvel = -1; break;
+						case SDLK_RIGHT:car_xvel = 1; break;
+						case SDLK_d:car_xvel = 1; break;
+						case SDLK_UP:car_yvel = -1; break;
+						case SDLK_w: {car_yvel = -1; cout << "W key pressed" << endl; break; }
+						case SDLK_DOWN:car_yvel = 1; break;
+						case SDLK_s:car_yvel = 1; break;
 
+						default:break;
+						}
+						break;
+					case SDL_KEYUP:
+						switch (event.key.keysym.sym) {
+						case SDLK_LEFT:if (car_xvel < 0)car_xvel = 0; break;
+						case SDLK_a:if (car_xvel < 0)car_xvel = 0; break;
+						case SDLK_RIGHT:if (car_xvel > 0)car_xvel = 0; break;
+						case SDLK_d:if (car_xvel > 0)car_xvel = 0; break;
+						case SDLK_UP:if (car_yvel < 0)car_yvel = 0; break;
+						case SDLK_w:if (car_yvel < 0)car_yvel = 0; break;
+						case SDLK_DOWN:if (car_yvel > 0)car_yvel = 0; break;
+						case SDLK_s:if (car_yvel > 0)car_yvel = 0; break;
+						default:break;
+						}
+						break;
+
+					default:
+						break;
+					}
+				}
+			}
+		
+		car_x += car_xvel;
+		car_y += car_yvel;
 		
 		// Render the entire background to the entire screen:
 		SDL_RenderCopy(renderer, backgnd_texture, NULL, NULL);
