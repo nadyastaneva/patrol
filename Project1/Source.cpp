@@ -3,13 +3,11 @@
 #include "SDL_image.h"
 #include "lodepng.h"
 #include <iostream>
+#include "Source.h"
+#include <windows.h>
 
 using namespace std;
 
-
-
-//kdk
-//dd
 
 
 int main(int argc, char* argv[])
@@ -22,16 +20,22 @@ int main(int argc, char* argv[])
 	const char backgnd_imagefile[] = "street2.bmp";
 	SDL_Surface* backgnd_surface = NULL;
 	SDL_Texture* backgnd_texture = NULL;
+	SDL_Rect bg_src = { 0 };
+	SDL_Rect bg_dest = { 0 };
 	int car_c = 0;
 	Uint32 rmask = 0, gmask = 0, bmask = 0, amask = 0;
-	const char car_imagefile[] = "car.png";
+	char car_imagefile[] = "car.png";
 	unsigned char* car_buffer = NULL;
 	unsigned int car_width = 0, car_height = 0, lodepng_result = 0;
 	SDL_Surface* car_surface = NULL;
 	SDL_Texture* car_texture = NULL;
+	SDL_Rect car_src = { 0 };
 	SDL_Rect car_destination = { 0 };
 	int car_x = 0, car_y = 0;
 	int car_xvel = 0, car_yvel = 0;
+	int bg_width = 5120;
+	int window_width = 1280;
+	int window_height = 720;
 
 	
 
@@ -41,7 +45,7 @@ int main(int argc, char* argv[])
 	if (!(IMG_Init(imgFlags) & imgFlags))
 		cout << "Error : " << IMG_GetError() << endl;	
 	
-	window = SDL_CreateWindow("Patrol NBU Project ", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, SDL_WINDOW_SHOWN);
+	window = SDL_CreateWindow("Patrol NBU Project ", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window_width, window_height, SDL_WINDOW_SHOWN);
 		
 	renderer = SDL_CreateRenderer(window, -1, 0);// SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
@@ -107,11 +111,54 @@ int main(int argc, char* argv[])
 		}
 	}
 
+	//dest
+	bg_dest.x = 0;
+	bg_dest.y = 0;
+	bg_dest.w = 5120;
+	bg_dest.h = 720;
+
+
+	car_destination.x = 50;
+	car_destination.y = 430;
+	car_destination.w = 165;
+	car_destination.h = 150;
 
 		bool isRunning = true;
 		SDL_Event event;
 		while (isRunning)
 		{
+			if ((-bg_dest.x) >= 3840) {
+				bg_dest.x = 0;
+			}
+			//move bg
+
+			// Render the entire background to the entire screen:
+			if (bg_src.w == 0) {
+				SDL_RenderCopy(renderer, backgnd_texture, NULL, &bg_dest);
+			} else {
+				SDL_RenderCopy(renderer, backgnd_texture, &bg_src, &bg_dest);
+			}
+			
+			// dimensions and positioning
+			car_destination.x += car_xvel;
+			car_destination.y += car_yvel;
+
+			if (car_src.w == 0) {
+				SDL_RenderCopy(renderer, car_texture, NULL, &car_destination);
+			} else {
+				SDL_RenderCopy(renderer, car_texture, &car_src, &car_destination);
+			}
+
+			Sleep(100);
+			// src
+			bg_src = bg_dest;
+			bg_dest.x -= 50;
+
+			car_src=car_destination;
+
+			SDL_RenderPresent(renderer);
+
+
 			while (SDL_PollEvent(&event) != 0)
 			{
 				if (event.type == SDL_QUIT)
@@ -123,14 +170,14 @@ int main(int argc, char* argv[])
 					switch (event.type) {
 					case SDL_KEYDOWN:
 						switch (event.key.keysym.sym) {
-						case SDLK_LEFT:car_xvel = -1; break;
-						case SDLK_a:car_xvel = -1; break;
-						case SDLK_RIGHT:car_xvel = 1; break;
-						case SDLK_d:car_xvel = 1; break;
-						case SDLK_UP:car_yvel = -1; break;
-						case SDLK_w: {car_yvel = -1; cout << "W key pressed" << endl; break; }
-						case SDLK_DOWN:car_yvel = 1; break;
-						case SDLK_s:car_yvel = 1; break;
+						case SDLK_LEFT:car_xvel = -10; break;
+						case SDLK_a:car_xvel = -10; break;
+						case SDLK_RIGHT:car_xvel = 10; break;
+						case SDLK_d:car_xvel = 10; break;
+						case SDLK_UP:car_yvel = -10; break;
+						case SDLK_w: {car_yvel = -10; cout << "W key pressed" << endl; break; }
+						case SDLK_DOWN:car_yvel = 10; break;
+						case SDLK_s:car_yvel = 10; break;
 
 						default:break;
 						}
@@ -154,22 +201,7 @@ int main(int argc, char* argv[])
 					}
 				}
 			}
-		
-		car_x += car_xvel;
-		car_y += car_yvel;
-		
-		// Render the entire background to the entire screen:
-		SDL_RenderCopy(renderer, backgnd_texture, NULL, NULL);
-
-		// dimensions and positioning
-		car_destination.x = 50;
-		car_destination.y = 430;
-		car_destination.w = 290;
-		car_destination.h = 150;
-		SDL_RenderCopy(renderer, car_texture, NULL, &car_destination);
-
-		SDL_RenderPresent(renderer);
-		
+	
 	}
 
 	

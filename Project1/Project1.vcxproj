@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL\include;E:\_Patrol NBU Game\SDL\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;E:\_Patrol NBU Game\SDL\lib\win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\nadya\Source\Repos\patrol\Project1\SDL2_image-2.0.0\include;C:\Users\nadya\Source\Repos\patrol\Project1\SDL-new\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\nadya\Source\Repos\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\nadya\Source\Repos\patrol\Project1\SDL-new\lib\win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>E:\_Patrol NBU Game\SDL\include;$(IncludePath)</IncludePath>
@@ -90,13 +90,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Win7\Desktop\SDL\include;C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\nadya\Source\Repos\patrol\Project1\SDL2_image-2.0.0\include;C:\Users\nadya\Source\Repos\patrol\Project1\SDL-new\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\nadya\Source\Repos\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\nadya\Source\Repos\patrol\Project1\SDL-new\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -151,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lodepng.h" />
+    <ClInclude Include="Source.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
