@@ -10,7 +10,6 @@ void quit(Car* car, SDL_Renderer *renderer, SDL_Window *window, Background* bg) 
 	bg->destroyTexture();
 	if (renderer) SDL_DestroyRenderer(renderer);
 	if (window) SDL_DestroyWindow(window);
-
 	SDL_Quit();
 }
 
@@ -30,15 +29,13 @@ int main(int argc, char* argv[])
 		cout << "Error : " << IMG_GetError() << endl;
 
 	window = SDL_CreateWindow("Patrol NBU Project ", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window_width, window_height, SDL_WINDOW_SHOWN);
-
 	renderer = SDL_CreateRenderer(window, -1, 0);// SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-
-
 
 	//create background and car objects
 	Background bg(renderer);
 	Car car(renderer);
 
+	//prepare images
 	if (car.prepareCarImage() == -1) {
 		quit(&car, renderer, window, &bg);
 		return 0;
@@ -47,16 +44,17 @@ int main(int argc, char* argv[])
 		quit(&car, renderer, window, &bg);
 		return 0;
 	}
+
 	bool isRunning = true;
 	SDL_Event event;
 	while (isRunning) {
 
-		//load background on screen
+		//load background on screen + loop
 		bg.initialPosition();
 		Sleep(50);
 		bg.updatePosition();
-	
-		//load car object on screen
+
+		//load car object on screen + movement
 		car.initialPosition();
 		SDL_RenderPresent(renderer);
 

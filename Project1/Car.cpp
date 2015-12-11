@@ -94,13 +94,23 @@ void Car::destroyTexture() {
 }
 
 void Car::slower() {
-	car_xvel = -10;
-	updatePosition();
+	if (car_dest.x <= 50) {
+		;
+	}
+	else {
+		car_xvel = -10;
+		updatePosition();
+	}
 }
 
 void Car::faster() {
-	car_xvel = 10;
-	updatePosition();
+	if (car_dest.x >= 400) {
+		;
+	}
+	else {
+		car_xvel = 10;
+		updatePosition();
+	}
 }
 
 void Car::jump() {
