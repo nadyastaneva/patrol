@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Header.h"
+#include "Header.h";
 
 class Car
 {
@@ -20,7 +20,7 @@ private:
 	int car_y;
 	int car_xvel;
 	int car_yvel;
-	Uint32 rmask = 0; 
+	Uint32 rmask = 0;
 	Uint32 gmask = 0;
 	Uint32 bmask = 0;
 	Uint32 amask = 0;
@@ -38,6 +38,4 @@ public:
 	void slower();
 	void faster();
 	void jump();
-
-	
 };

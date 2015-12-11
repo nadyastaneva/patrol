@@ -1,10 +1,10 @@
-#include "Car.h"
+#include "Car.h";
 
 int Car::prepareCarImage() {
 	// Masks for car surface
 	if (SDL_PixelFormatEnumToMasks(SDL_PIXELFORMAT_ABGR8888, &car_c, &rmask, &gmask, &bmask, &amask) == SDL_FALSE) {
 		SDL_Log("Failed to determine color masks from SDL_PIXELFORMAT_ABGR8888 (\"%s\").\n", SDL_GetError());
-		return -1; 
+		return -1;
 	}
 
 	// Convert car image to a texture
@@ -49,16 +49,16 @@ void Car::initialPosition() {
 void Car::updatePosition() {
 	car_dest.x += car_xvel;
 	car_dest.y += car_yvel;
-		
+
 	SDL_RenderCopy(renderer, car_texture, &car_src, &car_dest);
-	
+
 	car_src = car_dest;
 }
 
 Car::Car(SDL_Renderer *renderer)
 {
-	//initialize of variables
-	this->renderer = renderer; 
+	//initializing variables
+	this->renderer = renderer;
 	car_c = 0;
 	car_imagefile = "car.png";
 	car_buffer = NULL;
@@ -67,7 +67,7 @@ Car::Car(SDL_Renderer *renderer)
 	car_texture = NULL;
 	car_src = { 0 };
 	car_dest = { 0 };
-	car_x = 0; 
+	car_x = 0;
 	car_y = 0;
 	car_xvel = 0;
 	car_yvel = 0;
@@ -75,15 +75,15 @@ Car::Car(SDL_Renderer *renderer)
 	gmask = 0;
 	bmask = 0;
 	amask = 0;
-	
-	//inital car dest on screen
+
+	//inital car destination on screen
 	car_dest.x = 50;
 	car_dest.y = 430;
 	car_dest.w = 165;
 	car_dest.h = 150;
 
 }
-	
+
 Car::~Car()
 {
 }
