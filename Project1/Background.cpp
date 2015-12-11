@@ -24,7 +24,7 @@ void Background::initialPosition() { //loading on screen
 }
 void Background::updatePosition() { //scrolling
 	bg_src = bg_dest;
-	if ((bg_dest.x) <= -bg_width) {
+	if (-(bg_dest.x) >= bg_dest.w) {
 		bg_dest.x = 0;
 	}
 	bg_dest.x -= 20;
