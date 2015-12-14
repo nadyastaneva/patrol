@@ -1,4 +1,4 @@
-#include "Car.h";
+#include "Car.h"
 
 int Car::prepareCarImage() {
 	// Masks for car surface
@@ -39,7 +39,6 @@ int Car::prepareCarImage() {
 	return 0;
 }
 
-
 void Car::initialPosition() {
 	SDL_RenderCopy(renderer, car_texture, NULL, &car_dest);
 
@@ -60,23 +59,17 @@ Car::Car(SDL_Renderer *renderer)
 	//initializing variables
 	this->renderer = renderer;
 	car_c = 0;
-	car_imagefile = "car.png";
+	car_imagefile = "Graphics/car.png";
 	car_buffer = NULL;
 	car_width = 0, car_height = 0, lodepng_result = 0;
 	car_surface = NULL;
 	car_texture = NULL;
 	car_src = { 0 };
 	car_dest = { 0 };
-	car_x = 0;
-	car_y = 0;
-	car_xvel = 0;
-	car_yvel = 0;
-	rmask = 0;
-	gmask = 0;
-	bmask = 0;
-	amask = 0;
+	car_x = 0, car_y = 0, car_xvel = 0, car_yvel = 0;
+	rmask = 0, gmask = 0, bmask = 0, amask = 0;
 
-	//inital car destination on screen
+	//inital car destination
 	car_dest.x = 50;
 	car_dest.y = 430;
 	car_dest.w = 165;
@@ -114,5 +107,5 @@ void Car::faster() {
 }
 
 void Car::jump() {
-	//tobedone car_yvel = 10; i posle animation za naobratno 
+	//to be done: jump movement
 }

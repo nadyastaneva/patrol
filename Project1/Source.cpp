@@ -1,11 +1,12 @@
-#include "Source.h";
-#include "Car.h";
-#include "Background.h";
+#include "Source.h"
+#include "Car.h"
+#include "Background.h"
+#include "Hole.h"
+#include "Rocks.h"
 
 using namespace std;
 
 void quit(Car* car, SDL_Renderer *renderer, SDL_Window *window, Background* bg) {
-
 	car->destroyTexture();
 	bg->destroyTexture();
 	if (renderer) SDL_DestroyRenderer(renderer);
@@ -34,6 +35,8 @@ int main(int argc, char* argv[])
 	//create background and car objects
 	Background bg(renderer);
 	Car car(renderer);
+	Hole hole1(renderer);
+	Rocks rock1(renderer);
 
 	//prepare images
 	if (car.prepareCarImage() == -1) {
@@ -44,6 +47,10 @@ int main(int argc, char* argv[])
 		quit(&car, renderer, window, &bg);
 		return 0;
 	}
+	//prepare hole images
+	//...
+	//prepare rock images
+	//...
 
 	bool isRunning = true;
 	SDL_Event event;
@@ -53,10 +60,16 @@ int main(int argc, char* argv[])
 		bg.initialPosition();
 		Sleep(50);
 		bg.updatePosition();
-
+		
 		//load car object on screen + movement
 		car.initialPosition();
 		SDL_RenderPresent(renderer);
+
+		//load hole image
+		//needs to scroll off-screen and then get destroyed when off-screen
+		
+		//load rock image
+		//needs to scroll off-screen and then get destroyed when off-screen
 
 		while (SDL_PollEvent(&event) != 0) {
 			if (event.type == SDL_QUIT) {
@@ -98,6 +111,5 @@ int main(int argc, char* argv[])
 	}
 
 	quit(&car, renderer, window, &bg);
-
 	return 0;
 }

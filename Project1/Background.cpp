@@ -1,4 +1,4 @@
-#include "Background.h";
+#include "Background.h"
 
 int Background::prepareBGImage() {
 	// Turn background to surface
@@ -22,6 +22,7 @@ int Background::prepareBGImage() {
 void Background::initialPosition() { //loading on screen
 	SDL_RenderCopy(renderer, backgnd_texture, NULL, &bg_dest);
 }
+
 void Background::updatePosition() { //scrolling
 	bg_src = bg_dest;
 	if (-(bg_dest.x) >= bg_dest.w) {
@@ -35,15 +36,12 @@ Background::Background(SDL_Renderer *renderer)
 {
 	//initializing variables
 	this->renderer = renderer;
-	backgnd_imagefile = "street.bmp";
+	backgnd_imagefile = "Graphics/street.bmp";
 	backgnd_surface = NULL;
 	backgnd_texture = NULL;
 	bg_src = { 0 };
 	bg_dest = { 0 };
-	rmask = 0;
-	gmask = 0;
-	bmask = 0;
-	amask = 0;
+	rmask = 0, gmask = 0, bmask = 0, amask = 0;
 	bg_width = 5120;
 
 	//initial background destination
@@ -52,7 +50,6 @@ Background::Background(SDL_Renderer *renderer)
 	bg_dest.w = 5120;
 	bg_dest.h = 720;
 }
-
 
 Background::~Background()
 {
