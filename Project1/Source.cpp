@@ -6,9 +6,10 @@
 
 using namespace std;
 
-void quit(Car* car, SDL_Renderer *renderer, SDL_Window *window, Background* bg) {
+void quit(Car* car, SDL_Renderer *renderer, SDL_Window *window, Background* bg, Hole* hole) {
 	car->destroyTexture();
 	bg->destroyTexture();
+	hole->destroyTexture();
 	if (renderer) SDL_DestroyRenderer(renderer);
 	if (window) SDL_DestroyWindow(window);
 	SDL_Quit();
@@ -22,6 +23,8 @@ int main(int argc, char* argv[])
 	int window_height = 720;
 	int scrollingOffset = 0;
 	int bg_width = 5120;
+	int coord[5] = { 400, 600, 800, 1000, 1200 }; //array with x-coord for holes
+	int coord_i = 0;
 
 	SDL_Init(SDL_INIT_VIDEO);
 
@@ -35,41 +38,47 @@ int main(int argc, char* argv[])
 	//create background and car objects
 	Background bg(renderer);
 	Car car(renderer);
-	Hole hole1(renderer);
-	Rocks rock1(renderer);
+	Hole hole(renderer);
+	Rocks rock(renderer);
 
 	//prepare images
 	if (car.prepareCarImage() == -1) {
-		quit(&car, renderer, window, &bg);
+		quit(&car, renderer, window, &bg, &hole);
 		return 0;
 	}
 	if (bg.prepareBGImage() == -1) {
-		quit(&car, renderer, window, &bg);
+		quit(&car, renderer, window, &bg, &hole);
 		return 0;
 	}
 	//prepare hole images
-	//...
+	if (hole.prepareHoleImage() == -1) {
+		quit(&car, renderer, window, &bg, &hole);
+		return 0;
+	}
 	//prepare rock images
 	//...
 
 	bool isRunning = true;
 	SDL_Event event;
+	int xpos = coord[coord_i]; //counter to go through the coord array
 	while (isRunning) {
 
 		//load background on screen + loop
 		bg.initialPosition();
-		Sleep(50);
 		bg.updatePosition();
 		
 		//load car object on screen + movement
 		car.initialPosition();
-		SDL_RenderPresent(renderer);
 
-		//load hole image
-		//needs to scroll off-screen and then get destroyed when off-screen
+		//load hole image on screen
+		hole.initialPosition(xpos);
+		hole.updatePosition();
 		
 		//load rock image
 		//needs to scroll off-screen and then get destroyed when off-screen
+
+		SDL_RenderPresent(renderer);
+		Sleep(50);
 
 		while (SDL_PollEvent(&event) != 0) {
 			if (event.type == SDL_QUIT) {
@@ -110,6 +119,6 @@ int main(int argc, char* argv[])
 
 	}
 
-	quit(&car, renderer, window, &bg);
+	quit(&car, renderer, window, &bg, &hole);
 	return 0;
 }
