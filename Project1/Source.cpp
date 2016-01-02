@@ -4,6 +4,7 @@
 #include "Hole.h"
 #include "Rocks.h"
 
+
 using namespace std;
 
 void quit(Car* car, SDL_Renderer *renderer, SDL_Window *window, Background* bg) {
@@ -22,6 +23,9 @@ int main(int argc, char* argv[])
 	int window_height = 720;
 	int scrollingOffset = 0;
 	int bg_width = 5120;
+	int car_yvel = 0;
+
+	
 
 	SDL_Init(SDL_INIT_VIDEO);
 
@@ -54,7 +58,10 @@ int main(int argc, char* argv[])
 
 	bool isRunning = true;
 	SDL_Event event;
+
+	 
 	while (isRunning) {
+
 
 		//load background on screen + loop
 		bg.initialPosition();
@@ -72,10 +79,22 @@ int main(int argc, char* argv[])
 		//needs to scroll off-screen and then get destroyed when off-screen
 
 		while (SDL_PollEvent(&event) != 0) {
+
+			if (car.start_jump == 330)
+
+			{
+
+				car.start_jump = 430;
+
+			}
+			{
+
+		}
 			if (event.type == SDL_QUIT) {
 				isRunning = false;
 			}
 			else {
+
 				switch (event.type) {
 				case SDL_KEYDOWN:
 					switch (event.key.keysym.sym) {
@@ -83,7 +102,7 @@ int main(int argc, char* argv[])
 					case SDLK_a: car.slower(); break;
 					case SDLK_RIGHT: car.faster(); break;
 					case SDLK_d: car.faster(); break;
-					case SDLK_UP: car.jump(); break;
+					case SDLK_UP: car.jump();break;
 					case SDLK_w:  car.jump();  break;
 					default:break;
 					}

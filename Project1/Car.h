@@ -15,7 +15,7 @@ private:
 	SDL_Surface* car_surface;
 	SDL_Texture* car_texture;
 	SDL_Rect car_src;
-	SDL_Rect car_dest;
+   SDL_Rect car_dest;
 	int car_x, car_y, car_xvel, car_yvel;
 	Uint32 rmask, gmask, bmask, amask;
 
@@ -27,7 +27,8 @@ public:
 
 	int prepareCarImage();
 	void destroyTexture();
-
+	int start_jump = 0;
+	
 	void initialPosition();
 	void slower();
 	void faster();

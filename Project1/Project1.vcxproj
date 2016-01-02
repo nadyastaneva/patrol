@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Ollie\Documents\GitHub\patrol\Project1\image;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-new\include;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\include;C:\Users\nadya\Source\Repos\patrol\Project1\SDL2_image-2.0.0\include;C:\Users\nadya\Source\Repos\patrol\Project1\SDL-new\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Ollie\Documents\GitHub\patrol\Project1\image;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-library\lib\win32;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\nadya\Source\Repos\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\nadya\Source\Repos\patrol\Project1\SDL-new\lib\win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL\include;C:\Users\Ollie\Documents\GitHub\patrol\Project1\image;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-new\include;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\include;C:\Users\nadya\Source\Repos\patrol\Project1\SDL2_image-2.0.0\include;C:\Users\nadya\Source\Repos\patrol\Project1\SDL-new\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Win7\Desktop\SDL\lib\win32;C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Ollie\Documents\GitHub\patrol\Project1\image;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-library\lib\win32;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\nadya\Source\Repos\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\nadya\Source\Repos\patrol\Project1\SDL-new\lib\win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>E:\_Patrol NBU Game\SDL\include;$(IncludePath)</IncludePath>
@@ -82,8 +82,8 @@
     <LibraryPath>C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Users\Ollie\Documents\GitHub\patrol\Project1\image;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-new\include;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL\include;C:\Users\Nick\Documents\SDL\include;C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Ollie\Documents\GitHub\patrol\Project1\image;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-library\lib\win32;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;C:\Users\Nick\Documents\SDL\lib\win32;C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL\include;C:\Users\Ollie\Documents\GitHub\patrol\Project1\image;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-new\include;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL\include;C:\Users\Nick\Documents\SDL\include;C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Win7\Desktop\SDL\lib\win32;C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Ollie\Documents\GitHub\patrol\Project1\image;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-library\lib\win32;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;C:\Users\Nick\Documents\SDL\lib\win32;C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

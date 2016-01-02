@@ -1,5 +1,6 @@
 #include "Car.h"
 
+
 int Car::prepareCarImage() {
 	// Masks for car surface
 	if (SDL_PixelFormatEnumToMasks(SDL_PIXELFORMAT_ABGR8888, &car_c, &rmask, &gmask, &bmask, &amask) == SDL_FALSE) {
@@ -68,13 +69,14 @@ Car::Car(SDL_Renderer *renderer)
 	car_dest = { 0 };
 	car_x = 0, car_y = 0, car_xvel = 0, car_yvel = 0;
 	rmask = 0, gmask = 0, bmask = 0, amask = 0;
+	
 
 	//inital car destination
 	car_dest.x = 50;
-	car_dest.y = 430;
+   car_dest.y = 430;
 	car_dest.w = 165;
 	car_dest.h = 150;
-
+	
 }
 
 Car::~Car()
@@ -107,5 +109,12 @@ void Car::faster() {
 }
 
 void Car::jump() {
-	//to be done: jump movement
+	if (car_dest.y == 430)
+	{
+
+		start_jump = 330;
+	}
+	 {
+		 car_dest.y = start_jump;
+	}
 }
