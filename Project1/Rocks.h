@@ -16,7 +16,6 @@ private:
 	SDL_Texture* rock_texture;
 	SDL_Rect rock_src;
 	SDL_Rect rock_dest;
-	int rock_x, rock_y, rock_xvel, rock_yvel;
 	Uint32 rmask, gmask, bmask, amask;
 
 public:

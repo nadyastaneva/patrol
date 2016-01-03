@@ -16,7 +16,7 @@ private:
 	SDL_Texture* hole_texture;
 	SDL_Rect hole_src;
 	SDL_Rect hole_dest;
-	int hole_x, hole_y, hole_xvel, hole_yvel;
+	SDL_Rect hole_dest1;
 	Uint32 rmask, gmask, bmask, amask;
 
 public:
@@ -26,7 +26,7 @@ public:
 	int prepareHoleImage();
 	void destroyTexture();
 
-	void initialPosition();
+	void initialPosition(int initial_x);
 	void updatePosition();
 
 };

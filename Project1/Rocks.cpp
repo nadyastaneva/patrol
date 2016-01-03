@@ -62,7 +62,6 @@ Rocks::Rocks(SDL_Renderer *renderer)
 	rock_texture = NULL;
 	rock_src = { 0 };
 	rock_dest = { 0 };
-	rock_x = 0, rock_y = 0, rock_xvel = 0, rock_yvel = 0;
 	rmask = 0, gmask = 0, bmask = 0, amask = 0;
 
 	//destination of first rock
