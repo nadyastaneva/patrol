@@ -22,13 +22,7 @@ int main(int argc, char* argv[])
 	SDL_Renderer *renderer = nullptr;
 	int window_width = 1280;
 	int window_height = 720;
-	int scrollingOffset = 0;
 	int bg_width = 5120;
-	int car_yvel = 0;
-	int coord[5] = { 400, 600, 800, 1000, 1200 }; //array with x-coord for holes
-	int coord_i = 0;
-
-	
 
 	SDL_Init(SDL_INIT_VIDEO);
 
@@ -39,7 +33,7 @@ int main(int argc, char* argv[])
 	window = SDL_CreateWindow("Patrol NBU Project ", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window_width, window_height, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, 0);// SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
-	//create background and car objects
+	//create objects
 	Background bg(renderer);
 	Car car(renderer);
 	Hole hole(renderer);
@@ -60,43 +54,42 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 	//prepare rock images
-	//...
+	if (rock.prepareRockImage() == -1) {
+		quit(&car, renderer, window, &bg, &hole);
+		return 0;
+	}
 
 	bool isRunning = true;
 	SDL_Event event;
-	int xpos = coord[coord_i]; //counter to go through the coord array
 	while (isRunning) {
-
 
 		//load background on screen + loop
 		bg.initialPosition();
 		bg.updatePosition();
-		
+
+		//load hole image on screen
+		hole.initialPosition();
+		hole.updatePosition();
+
+		//load rock image
+		rock.initialPosition();
+		rock.updatePosition();
+
 		//load car object on screen + movement
 		car.initialPosition();
 
-		//load hole image on screen
-		hole.initialPosition(xpos);
-		hole.updatePosition();
-		
-		//load rock image
-		//needs to scroll off-screen and then get destroyed when off-screen
-
 		SDL_RenderPresent(renderer);
-		Sleep(50);
+		Sleep(100);
 
 		while (SDL_PollEvent(&event) != 0) {
 
 			if (car.start_jump == 330)
-
 			{
-
 				car.start_jump = 430;
-
 			}
 			{
 
-		}
+			}
 			if (event.type == SDL_QUIT) {
 				isRunning = false;
 			}
@@ -109,7 +102,7 @@ int main(int argc, char* argv[])
 					case SDLK_a: car.slower(); break;
 					case SDLK_RIGHT: car.faster(); break;
 					case SDLK_d: car.faster(); break;
-					case SDLK_UP: car.jump();break;
+					case SDLK_UP: car.jump(); break;
 					case SDLK_w:  car.jump();  break;
 					default:break;
 					}

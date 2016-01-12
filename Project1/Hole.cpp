@@ -39,15 +39,13 @@ int Hole::prepareHoleImage() {
 	return 0;
 }
 
-void Hole::initialPosition(int initial_x) {
-	hole_dest.x = initial_x;
-	SDL_RenderCopy(renderer, hole_texture, NULL, &hole_dest); 
-	//need to find a way to input many positions here for all the holes on the road
+void Hole::initialPosition() {
+	SDL_RenderCopy(renderer, hole_texture, NULL, &hole_dest);
 }
 
 void Hole::updatePosition() { //scrolling
 	hole_src = hole_dest;
-	hole_dest.x -= 20;
+	hole_dest.x -= 15;
 	SDL_RenderCopy(renderer, hole_texture, &hole_src, &hole_dest);
 }
 
@@ -56,7 +54,7 @@ Hole::Hole(SDL_Renderer *renderer)
 	//initializing variables
 	this->renderer = renderer;
 	hole_h = 0;
-	hole_imagefile = "Graphics/hole.png";
+	hole_imagefile = "Graphics/hole2.png";
 	hole_buffer = NULL;
 	hole_width = 0, hole_height = 0, lodepng_result = 0;
 	hole_surface = NULL;
@@ -66,10 +64,10 @@ Hole::Hole(SDL_Renderer *renderer)
 	rmask = 0, gmask = 0, bmask = 0, amask = 0;
 
 	//destination of first hole
-	hole_dest.x = 0;
+	hole_dest.x = 650;
 	hole_dest.y = 530;
-	hole_dest.w = 60;
-	hole_dest.h = 60;
+	hole_dest.w = 80;
+	hole_dest.h = 47;
 }
 
 Hole::~Hole()

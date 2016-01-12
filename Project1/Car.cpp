@@ -69,14 +69,12 @@ Car::Car(SDL_Renderer *renderer)
 	car_dest = { 0 };
 	car_x = 0, car_y = 0, car_xvel = 0, car_yvel = 0;
 	rmask = 0, gmask = 0, bmask = 0, amask = 0;
-	
 
 	//inital car destination
 	car_dest.x = 50;
-   car_dest.y = 430;
+	car_dest.y = 430;
 	car_dest.w = 165;
 	car_dest.h = 150;
-	
 }
 
 Car::~Car()
@@ -114,7 +112,7 @@ void Car::jump() {
 
 		start_jump = 330;
 	}
-	 {
-		 car_dest.y = start_jump;
+	{
+		car_dest.y = start_jump;
 	}
 }

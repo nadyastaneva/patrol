@@ -26,7 +26,7 @@ public:
 	int prepareHoleImage();
 	void destroyTexture();
 
-	void initialPosition(int initial_x);
+	void initialPosition();
 	void updatePosition();
 
 };

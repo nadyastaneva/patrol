@@ -41,12 +41,11 @@ int Rocks::prepareRockImage() {
 
 void Rocks::initialPosition() {
 	SDL_RenderCopy(renderer, rock_texture, NULL, &rock_dest);
-	//need to find a way to input many positions here for all the rocks on the road
 }
 
 void Rocks::updatePosition() { //scrolling
 	rock_src = rock_dest;
-	rock_dest.x -= 20;
+	rock_dest.x -= 15;
 	SDL_RenderCopy(renderer, rock_texture, &rock_src, &rock_dest);
 }
 
@@ -55,7 +54,7 @@ Rocks::Rocks(SDL_Renderer *renderer)
 	//initializing variables
 	this->renderer = renderer;
 	rock_r = 0;
-	rock_imagefile = "Graphics/rock.png";
+	rock_imagefile = "Graphics/rock2.png";
 	rock_buffer = NULL;
 	rock_width = 0, rock_height = 0, lodepng_result = 0;
 	rock_surface = NULL;
@@ -65,10 +64,10 @@ Rocks::Rocks(SDL_Renderer *renderer)
 	rmask = 0, gmask = 0, bmask = 0, amask = 0;
 
 	//destination of first rock
-	rock_dest.x = 1500;
-	rock_dest.y = 550;
-	rock_dest.w = 60;
-	rock_dest.h = 60;
+	rock_dest.x = 850;
+	rock_dest.y = 530;
+	rock_dest.w = 80;
+	rock_dest.h = 52;
 }
 
 Rocks::~Rocks()
