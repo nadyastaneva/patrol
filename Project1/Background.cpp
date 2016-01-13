@@ -28,6 +28,10 @@ void Background::updatePosition() { //scrolling
 	SDL_RenderCopy(renderer, backgnd_texture, &bg_src, &bg_dest);
 	if (bg_dest.x <= -3840) {
 		bg_dest.x = 0;
+		count++; //counts how many times background has looped
+		if (count = 4) {
+			//trigger end of game score screen  ??
+		}
 	}
 }
 
@@ -42,7 +46,7 @@ Background::Background(SDL_Renderer *renderer)
 	bg_dest = { 0 };
 	rmask = 0, gmask = 0, bmask = 0, amask = 0;
 	bg_width = 5120;
-
+	count = 0;
 	//initial background destination
 	bg_dest.x = 0;
 	bg_dest.y = 0;

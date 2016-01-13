@@ -46,6 +46,9 @@ void Hole::initialPosition() {
 void Hole::updatePosition() { //scrolling
 	hole_dest.x -= 20;
 	SDL_RenderCopy(renderer, hole_texture, &hole_src, &hole_dest);
+	if (hole_dest.x <= -81) {
+		destroyTexture(); //destroys texture when off-screen
+	}
 }
 
 Hole::Hole(SDL_Renderer *renderer)
