@@ -24,12 +24,11 @@ void Background::initialPosition() { //loading on screen
 }
 
 void Background::updatePosition() { //scrolling
-	bg_src = bg_dest;
-	//if (-(bg_dest.x) >= bg_dest.w) {
-	//	bg_dest.x = 0;
-	//}
 	bg_dest.x -= 20;
 	SDL_RenderCopy(renderer, backgnd_texture, &bg_src, &bg_dest);
+	if (bg_dest.x <= -3840) {
+		bg_dest.x = 0;
+	}
 }
 
 Background::Background(SDL_Renderer *renderer)

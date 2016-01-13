@@ -44,8 +44,7 @@ void Rocks::initialPosition() {
 }
 
 void Rocks::updatePosition() { //scrolling
-	rock_src = rock_dest;
-	rock_dest.x -= 15;
+	rock_dest.x -= 20;
 	SDL_RenderCopy(renderer, rock_texture, &rock_src, &rock_dest);
 }
 

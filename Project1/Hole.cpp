@@ -44,8 +44,7 @@ void Hole::initialPosition() {
 }
 
 void Hole::updatePosition() { //scrolling
-	hole_src = hole_dest;
-	hole_dest.x -= 15;
+	hole_dest.x -= 20;
 	SDL_RenderCopy(renderer, hole_texture, &hole_src, &hole_dest);
 }
 

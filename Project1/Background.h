@@ -14,7 +14,6 @@ private:
 	Uint32 rmask, gmask, bmask, amask;
 	int bg_width;
 
-
 public:
 	Background(SDL_Renderer *renderer);
 	~Background();

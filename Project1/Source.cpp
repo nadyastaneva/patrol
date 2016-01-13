@@ -7,10 +7,11 @@
 
 using namespace std;
 
-void quit(Car* car, SDL_Renderer *renderer, SDL_Window *window, Background* bg, Hole* hole) {
+void quit(Car* car, SDL_Renderer *renderer, SDL_Window *window, Background* bg, Hole* hole, Rocks* rock) {
 	car->destroyTexture();
 	bg->destroyTexture();
 	hole->destroyTexture();
+	rock->destroyTexture();
 	if (renderer) SDL_DestroyRenderer(renderer);
 	if (window) SDL_DestroyWindow(window);
 	SDL_Quit();
@@ -32,30 +33,28 @@ int main(int argc, char* argv[])
 
 	window = SDL_CreateWindow("Patrol NBU Project ", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window_width, window_height, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, 0);// SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-
+	
 	//create objects
 	Background bg(renderer);
-	Car car(renderer);
 	Hole hole(renderer);
 	Rocks rock(renderer);
+	Car car(renderer);
 
 	//prepare images
-	if (car.prepareCarImage() == -1) {
-		quit(&car, renderer, window, &bg, &hole);
-		return 0;
-	}
 	if (bg.prepareBGImage() == -1) {
-		quit(&car, renderer, window, &bg, &hole);
+		quit(&car, renderer, window, &bg, &hole, &rock);
 		return 0;
 	}
-	//prepare hole images
 	if (hole.prepareHoleImage() == -1) {
-		quit(&car, renderer, window, &bg, &hole);
+		quit(&car, renderer, window, &bg, &hole, &rock);
 		return 0;
 	}
-	//prepare rock images
 	if (rock.prepareRockImage() == -1) {
-		quit(&car, renderer, window, &bg, &hole);
+		quit(&car, renderer, window, &bg, &hole, &rock);
+		return 0;
+	}
+	if (car.prepareCarImage() == -1) {
+		quit(&car, renderer, window, &bg, &hole, &rock);
 		return 0;
 	}
 
@@ -79,7 +78,7 @@ int main(int argc, char* argv[])
 		car.initialPosition();
 
 		SDL_RenderPresent(renderer);
-		Sleep(100);
+		Sleep(50);
 
 		while (SDL_PollEvent(&event) != 0) {
 
@@ -129,6 +128,6 @@ int main(int argc, char* argv[])
 
 	}
 
-	quit(&car, renderer, window, &bg, &hole);
+	quit(&car, renderer, window, &bg, &hole, &rock);
 	return 0;
 }
