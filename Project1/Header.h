@@ -5,3 +5,5 @@
 #include "lodepng.h"
 #include <iostream>
 #include <windows.h>
+#include <sstream>
+#include "SDL_ttf.h"
