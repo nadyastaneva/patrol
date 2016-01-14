@@ -87,23 +87,23 @@ int main(int argc, char* argv[])
 
 	//prepare images
 	if (bg.prepareBGImage() == -1) {
-		quit(&car, renderer, window, &bg, &hole, &rock);
+		quit(&car, renderer, window, &bg, &hole, &rock, &enemy);
 		return 0;
 	}
 	if (hole.prepareHoleImage() == -1) {
-		quit(&car, renderer, window, &bg, &hole, &rock);
+		quit(&car, renderer, window, &bg, &hole, &rock, &enemy);
 		return 0;
 	}
 	if (rock.prepareRockImage() == -1) {
-		quit(&car, renderer, window, &bg, &hole, &rock);
+		quit(&car, renderer, window, &bg, &hole, &rock, &enemy);
 		return 0;
 	}
 	if (car.prepareCarImage() == -1) {
-		quit(&car, renderer, window, &bg, &hole, &rock);
+		quit(&car, renderer, window, &bg, &hole, &rock, &enemy);
 		return 0;
 	}
 	if (enemy.prepareEnemyImage() == -1) {
-		quit(&car, renderer, window, &bg, &hole, &rock);
+		quit(&car, renderer, window, &bg, &hole, &rock, &enemy);
 		return 0;
 	}
 
