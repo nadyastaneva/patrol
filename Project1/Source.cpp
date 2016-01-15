@@ -55,7 +55,7 @@ void showscore(SDL_Renderer *renderer, int window_width, int window_height) {
 		text_rect.y = window_height / 2 - text_rect.h / 2;
 		SDL_RenderCopy(renderer, textTexture, NULL, &text_rect);
 		SDL_RenderPresent(renderer);
-		Sleep(4000);
+		Sleep(40);
 		SDL_FreeSurface(textsurfice);
 		TTF_CloseFont(font);
 	}
@@ -85,6 +85,14 @@ int main(int argc, char* argv[])
 	Car car(renderer);
 	Enemy enemy(renderer);
 
+	//init hole positions and counter
+	int holeXs[3] = { 2000,3500,5000 };
+	int holeCount = 0;
+
+	// init rock positions and counter
+	int rockXs[3] = { 2200,3800,5100 };
+	int rockCount = 0;
+
 	//prepare images
 	if (bg.prepareBGImage() == -1) {
 		quit(&car, renderer, window, &bg, &hole, &rock, &enemy);
@@ -110,7 +118,6 @@ int main(int argc, char* argv[])
 	bool isRunning = true;
 	SDL_Event event;
 	bool quitLoop = false;
-
 	while (isRunning && !quitLoop) {
 
 		//load background on screen + loop
@@ -118,10 +125,20 @@ int main(int argc, char* argv[])
 		bg.updatePosition();
 
 		//load hole image on screen
+		if (hole.hole_dest.x <= -90 && holeCount<3)
+		{
+			holeCount++;
+			hole.hole_dest.x =holeXs[holeCount];
+		}
 		hole.initialPosition();
 		hole.updatePosition();
 
 		//load rock image
+		if (rock.rock_dest.x <= -90 && rockCount<3)
+		{
+			rockCount++;
+			rock.rock_dest.x = rockXs[rockCount];
+		}
 		rock.initialPosition();
 		rock.updatePosition();
 

@@ -46,9 +46,6 @@ void Rocks::initialPosition() {
 void Rocks::updatePosition() { //scrolling
 	rock_dest.x -= 20;
 	SDL_RenderCopy(renderer, rock_texture, &rock_src, &rock_dest);
-	if (rock_dest.x <= -81) {
-		destroyTexture(); //destroys texture when off-screen
-	}
 }
 
 Rocks::Rocks(SDL_Renderer *renderer)

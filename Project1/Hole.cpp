@@ -1,5 +1,6 @@
 #include "Hole.h"
 
+
 int Hole::prepareHoleImage() {
 	// Masks for hole surface
 	if (SDL_PixelFormatEnumToMasks(SDL_PIXELFORMAT_ABGR8888, &hole_h, &rmask, &gmask, &bmask, &amask) == SDL_FALSE) {
@@ -46,9 +47,6 @@ void Hole::initialPosition() {
 void Hole::updatePosition() { //scrolling
 	hole_dest.x -= 20;
 	SDL_RenderCopy(renderer, hole_texture, &hole_src, &hole_dest);
-	if (hole_dest.x <= -81) {
-		destroyTexture(); //destroys texture when off-screen
-	}
 }
 
 Hole::Hole(SDL_Renderer *renderer)
@@ -66,7 +64,7 @@ Hole::Hole(SDL_Renderer *renderer)
 	rmask = 0, gmask = 0, bmask = 0, amask = 0;
 
 	//destination of first hole
-	hole_dest.x = 650;
+	hole_dest.x = 600;
 	hole_dest.y = 530;
 	hole_dest.w = 80;
 	hole_dest.h = 47;

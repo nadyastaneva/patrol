@@ -14,18 +14,16 @@ private:
 	unsigned int lodepng_result;
 	SDL_Surface* hole_surface;
 	SDL_Texture* hole_texture;
-	SDL_Rect hole_src;
-	SDL_Rect hole_dest;
-	SDL_Rect hole_dest1;
+	SDL_Rect hole_src;	
 	Uint32 rmask, gmask, bmask, amask;
+
 
 public:
 	Hole(SDL_Renderer *renderer);
 	~Hole();
-
+	SDL_Rect hole_dest;
 	int prepareHoleImage();
 	void destroyTexture();
-
 	void initialPosition();
 	void updatePosition();
 

@@ -15,12 +15,12 @@ private:
 	SDL_Surface* rock_surface;
 	SDL_Texture* rock_texture;
 	SDL_Rect rock_src;
-	SDL_Rect rock_dest;
 	Uint32 rmask, gmask, bmask, amask;
 
 public:
 	Rocks(SDL_Renderer *renderer);
 	~Rocks();
+	SDL_Rect rock_dest;
 
 	int prepareRockImage();
 	void destroyTexture();
