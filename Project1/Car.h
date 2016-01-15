@@ -15,20 +15,19 @@ private:
 	SDL_Surface* car_surface;
 	SDL_Texture* car_texture;
 	SDL_Rect car_src;
-   SDL_Rect car_dest;
-	int car_x, car_y, car_xvel, car_yvel;
 	Uint32 rmask, gmask, bmask, amask;
-
-	void updatePosition();
+	int car_x, car_y, car_xvel, car_yvel;
 
 public:
 	Car(SDL_Renderer *renderer);
 	~Car();
-
+	void updateXPosition();
+	void updateYPosition();
 	int prepareCarImage();
 	void destroyTexture();
-	int start_jump = 0;
-	
+	bool jumping;
+	SDL_Rect car_dest;
+	float gravity;
 	void initialPosition();
 	void slower();
 	void faster();

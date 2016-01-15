@@ -1,4 +1,6 @@
 #include "Car.h"
+#include <iostream>
+using namespace std;
 
 
 int Car::prepareCarImage() {
@@ -46,12 +48,14 @@ void Car::initialPosition() {
 	car_src = car_dest;
 }
 
-void Car::updatePosition() {
+void Car::updateXPosition() {
 	car_dest.x += car_xvel;
-	car_dest.y += car_yvel;
-
 	SDL_RenderCopy(renderer, car_texture, &car_src, &car_dest);
-
+	car_src = car_dest;
+}
+void Car::updateYPosition() {
+	car_dest.y += car_yvel;
+	SDL_RenderCopy(renderer, car_texture, &car_src, &car_dest);
 	car_src = car_dest;
 }
 
@@ -60,7 +64,7 @@ Car::Car(SDL_Renderer *renderer)
 	//initializing variables
 	this->renderer = renderer;
 	car_c = 0;
-	car_imagefile = "Graphics/car.png";
+	car_imagefile = "Graphics/car.png"; //fix image size!!
 	car_buffer = NULL;
 	car_width = 0, car_height = 0, lodepng_result = 0;
 	car_surface = NULL;
@@ -69,12 +73,15 @@ Car::Car(SDL_Renderer *renderer)
 	car_dest = { 0 };
 	car_x = 0, car_y = 0, car_xvel = 0, car_yvel = 0;
 	rmask = 0, gmask = 0, bmask = 0, amask = 0;
+	gravity = 0;
+	bool jumping = true;
 
 	//inital car destination
 	car_dest.x = 50;
 	car_dest.y = 430;
 	car_dest.w = 165;
 	car_dest.h = 150;
+
 }
 
 Car::~Car()
@@ -92,7 +99,7 @@ void Car::slower() {
 	}
 	else {
 		car_xvel = -10;
-		updatePosition();
+		updateXPosition();
 	}
 }
 
@@ -102,17 +109,18 @@ void Car::faster() {
 	}
 	else {
 		car_xvel = 10;
-		updatePosition();
+		updateXPosition();
 	}
 }
 
-void Car::jump() {
-	if (car_dest.y == 430)
-	{
-
-		start_jump = 330;
+void Car::jump(){
+	if (car_dest.y > 330 && jumping) {
+		gravity = -8;
+		updateYPosition(); //no check for jumping while in the air --> double jump
 	}
+	if (car_dest.y == 430 && !jumping)
 	{
-		car_dest.y = start_jump;
+		gravity = 0;
+		jumping = true;
 	}
 }
