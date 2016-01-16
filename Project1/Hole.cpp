@@ -1,6 +1,5 @@
 #include "Hole.h"
 
-
 int Hole::prepareHoleImage() {
 	// Masks for hole surface
 	if (SDL_PixelFormatEnumToMasks(SDL_PIXELFORMAT_ABGR8888, &hole_h, &rmask, &gmask, &bmask, &amask) == SDL_FALSE) {
@@ -64,8 +63,8 @@ Hole::Hole(SDL_Renderer *renderer)
 	rmask = 0, gmask = 0, bmask = 0, amask = 0;
 
 	//destination of first hole
-	hole_dest.x = 600;
-	hole_dest.y = 530;
+	hole_dest.x = 984;
+	hole_dest.y = 550;
 	hole_dest.w = 80;
 	hole_dest.h = 47;
 }

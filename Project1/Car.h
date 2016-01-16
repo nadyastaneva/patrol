@@ -19,6 +19,8 @@ private:
 	int car_x, car_y, car_xvel, car_yvel;
 
 public:
+	int groundPos;
+	int jumpHeight;
 	Car(SDL_Renderer *renderer);
 	~Car();
 	void updateXPosition();

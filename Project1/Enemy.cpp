@@ -44,7 +44,7 @@ void Enemy::initialPosition() {
 }
 
 void Enemy::updatePosition() { //scrolling
-	enemy_dest.x -= 20;
+	enemy_dest.x -= 12;
 	SDL_RenderCopy(renderer, enemy_texture, &enemy_src, &enemy_dest);
 }
 
@@ -53,7 +53,7 @@ Enemy::Enemy(SDL_Renderer *renderer)
 	//initializing variables
 	this->renderer = renderer;
 	enemy_r = 0;
-	enemy_imagefile = "Graphics/pigeons3.png";
+	enemy_imagefile = "Graphics/pigeons.png";
 	enemy_buffer = NULL;
 	enemy_width = 0, enemy_height = 0, lodepng_result = 0;
 	enemy_surface = NULL;
@@ -63,10 +63,10 @@ Enemy::Enemy(SDL_Renderer *renderer)
 	rmask = 0, gmask = 0, bmask = 0, amask = 0;
 
 	//destination of first enemy
-	enemy_dest.x = 750;
-	enemy_dest.y = 180;
-	enemy_dest.w = 70;
-	enemy_dest.h = 105;
+	enemy_dest.x = 1050;
+	enemy_dest.y = 90;
+	enemy_dest.w = 100;
+	enemy_dest.h = 121;
 }
 
 Enemy::~Enemy()

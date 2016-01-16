@@ -3,7 +3,7 @@
 #include "Background.h"
 #include "Hole.h"
 #include "Rocks.h"
-#include"Enemy.h"
+#include "Enemy.h"
 #include <sstream>
 #include "SDL_ttf.h"
 
@@ -25,7 +25,7 @@ void showscore(SDL_Renderer *renderer, int window_width, int window_height) {
 
 	std::string text = "Your Score: ";
 
-	//Initialize SDL_ttf
+	// initialize SDL_ttf
 	if (TTF_Init() != 0) {
 		printf("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
 		return;
@@ -37,7 +37,6 @@ void showscore(SDL_Renderer *renderer, int window_width, int window_height) {
 	else {
 		SDL_Color textColor = { 250, 0, 0 };
 		SDL_Surface* textsurfice = TTF_RenderText_Solid(font, text.c_str(), textColor);
-
 		SDL_Rect text_rect;
 
 		if (textsurfice == NULL)
@@ -47,8 +46,7 @@ void showscore(SDL_Renderer *renderer, int window_width, int window_height) {
 
 		SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textsurfice);
 
-
-		//Get the texture w/h so we can center it in the screen
+		// Get the texture w/h so we can center it in the screen
 
 		SDL_QueryTexture(textTexture, NULL, NULL, &text_rect.w, &text_rect.h);
 		text_rect.x = window_width / 2 - text_rect.w / 2;
@@ -70,7 +68,6 @@ int main(int argc, char* argv[])
 	int bg_width = 5120;
 
 	SDL_Init(SDL_INIT_VIDEO);
-
 	int imgFlags = IMG_INIT_PNG;
 	if (!(IMG_Init(imgFlags) & imgFlags))
 		cout << "Error : " << IMG_GetError() << endl;
@@ -78,23 +75,26 @@ int main(int argc, char* argv[])
 	window = SDL_CreateWindow("Patrol NBU Project ", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window_width, window_height, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, 0);// SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
-	 
-	//create objects
+	// hole positions and counter
+	int holeXs[10] = { 2123, 2820, 3305, 4023, 4512, 5621, 6302, 6834, 8000, 8544 };
+	int holeCount = -1;
+
+	// rock positions and counter
+	int rockXs[13] = { 1352, 1889, 2588, 3043, 3267, 3823, 4190, 5031, 5321, 6104, 7221, 7713, 8302 };
+	int rockCount = -1;
+
+	// enemy positions and counter
+	int enemyXs[4] = { 2532, 3471, 4179, 5721 };
+	int enemyCount = -1;
+
+	// create objects
 	Background bg(renderer);
 	Hole hole(renderer);
 	Rocks rock(renderer);
 	Car car(renderer);
 	Enemy enemy(renderer);
 
-	//init hole positions and counter
-	int holeXs[3] = { 2000,3500,5000 };
-	int holeCount = 0;
-
-	// init rock positions and counter
-	int rockXs[3] = { 2200,3800,5100 };
-	int rockCount = 0;
-
-	//prepare images
+	// prepare images
 	if (bg.prepareBGImage() == -1) {
 		quit(&car, renderer, window, &bg, &hole, &rock, &enemy);
 		return 0;
@@ -116,23 +116,20 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 
-
-	bool isRunning = true;
 	SDL_Event event;
+	bool isRunning = true;
 	bool quitLoop = false;
 
-	
-	
-
+	// game start
 	while (isRunning && !quitLoop) {
 
 		int start = SDL_GetTicks();
-		//load background on screen + loop
+		// load background on screen
 		bg.initialPosition();
 		bg.updatePosition();
 
-		//load hole image on screen
-		if (hole.hole_dest.x <= -90 && holeCount < 3)
+		// load hole image on screen
+		if (hole.hole_dest.x <= -90 && holeCount < 11)
 		{
 			holeCount++;
 			hole.hole_dest.x = holeXs[holeCount];
@@ -140,8 +137,8 @@ int main(int argc, char* argv[])
 		hole.initialPosition();
 		hole.updatePosition();
 
-		//load rock image
-		if (rock.rock_dest.x <= -90 && rockCount < 3)
+		// load rock image
+		if (rock.rock_dest.x <= -90 && rockCount < 14)
 		{
 			rockCount++;
 			rock.rock_dest.x = rockXs[rockCount];
@@ -149,31 +146,58 @@ int main(int argc, char* argv[])
 		rock.initialPosition();
 		rock.updatePosition();
 
-		//load enemy image
+		// load enemy image
+		if (enemy.enemy_dest.x <= -90 && enemyCount < 14)
+		{
+			enemyCount++;
+			enemy.enemy_dest.x = enemyXs[enemyCount];
+		}
 		enemy.initialPosition();
 		enemy.updatePosition();
 
-		//load car object on screen + movement
+		// load car object on screen
 		car.initialPosition();
 
-		car.car_dest.y += car.gravity; //adds gravity to car object
+		car.car_dest.y += car.gravity; // adds gravity to car object
 		car.jumping = true;
 
-		if (car.car_dest.y == 430) 
+		if (car.car_dest.y == car.groundPos)
 		{
-			car.gravity = 0; //gravity doesn't affect while on ground
+			car.gravity = 0; // gravity doesn't affect while on ground
 		}
-		if (car.car_dest.y < 330)
+		if (car.car_dest.y < car.jumpHeight)
 		{
-			car.gravity = 8;
+			car.gravity = 8; // gravity returns the car to the ground
 			car.updateYPosition();
 			car.jumping = false;
 		}
 
+		// collision check for holes
+		if ((car.car_dest.y + car.car_dest.h) >= hole.hole_dest.y + 15) // collision on Y-axis
+		{
+			if (car.car_dest.x <= hole.hole_dest.x && (car.car_dest.x + car.car_dest.w) >= hole.hole_dest.x) // collision on X-axis - front/top
+			{
+				// stop game; show score ---------------- TO BE FIXED
+			}
+			else if (car.car_dest.x <= (hole.hole_dest.x + hole.hole_dest.w) && (car.car_dest.x + car.car_dest.w) >= (hole.hole_dest.x + hole.hole_dest.w)) // collision on X-axis - back
+			{
+				// stop game; show score ---------------- TO BE FIXED
+			}
+		}
+		// collision check for rocks
+		if ((car.car_dest.y + car.car_dest.h) >= rock.rock_dest.y) // collision on Y-axis
+		{
+			if (car.car_dest.x <= rock.rock_dest.x && (car.car_dest.x + car.car_dest.w) >= rock.rock_dest.x) // collision on X-axis - front/top
+			{
+				// stop game; show score ---------------- TO BE FIXED
+			}
+			else if (car.car_dest.x <= (rock.rock_dest.x + rock.rock_dest.w - 5) && (car.car_dest.x + car.car_dest.w) >= (rock.rock_dest.x + rock.rock_dest.w - 5)) // collision on X-axis - back
+			{
+				// stop game; show score ---------------- TO BE FIXED
+			}
+		}
 		SDL_RenderPresent(renderer);
-
 		Sleep(50);
-
 
 		while (SDL_PollEvent(&event) != 0 && !quitLoop) {
 			if (event.type == SDL_QUIT) {

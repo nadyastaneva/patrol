@@ -21,10 +21,8 @@ public:
 	Rocks(SDL_Renderer *renderer);
 	~Rocks();
 	SDL_Rect rock_dest;
-
 	int prepareRockImage();
 	void destroyTexture();
-
 	void initialPosition();
 	void updatePosition();
 };

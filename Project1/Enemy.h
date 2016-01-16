@@ -15,16 +15,14 @@ private:
 	SDL_Surface* enemy_surface;
 	SDL_Texture* enemy_texture;
 	SDL_Rect enemy_src;
-	SDL_Rect enemy_dest;
 	Uint32 rmask, gmask, bmask, amask;
 
 public:
 	Enemy(SDL_Renderer *renderer);
 	~Enemy();
-
+	SDL_Rect enemy_dest;
 	int prepareEnemyImage();
 	void destroyTexture();
-
 	void initialPosition();
 	void updatePosition();
 };

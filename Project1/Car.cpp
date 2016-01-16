@@ -64,7 +64,7 @@ Car::Car(SDL_Renderer *renderer)
 	//initializing variables
 	this->renderer = renderer;
 	car_c = 0;
-	car_imagefile = "Graphics/car.png"; //fix image size!!
+	car_imagefile = "Graphics/car.png";
 	car_buffer = NULL;
 	car_width = 0, car_height = 0, lodepng_result = 0;
 	car_surface = NULL;
@@ -75,13 +75,14 @@ Car::Car(SDL_Renderer *renderer)
 	rmask = 0, gmask = 0, bmask = 0, amask = 0;
 	gravity = 0;
 	bool jumping = true;
+	groundPos = 430;
+	jumpHeight = 350;
 
 	//inital car destination
 	car_dest.x = 50;
 	car_dest.y = 430;
-	car_dest.w = 165;
+	car_dest.w = 161;
 	car_dest.h = 150;
-
 }
 
 Car::~Car()
@@ -94,8 +95,7 @@ void Car::destroyTexture() {
 }
 
 void Car::slower() {
-	if (car_dest.x <= 50) {
-		;
+	if (car_dest.x <= 50) {;
 	}
 	else {
 		car_xvel = -10;
@@ -104,8 +104,7 @@ void Car::slower() {
 }
 
 void Car::faster() {
-	if (car_dest.x >= 400) {
-		;
+	if (car_dest.x >= 400) {;
 	}
 	else {
 		car_xvel = 10;
@@ -114,11 +113,11 @@ void Car::faster() {
 }
 
 void Car::jump(){
-	if (car_dest.y > 330 && jumping) {
+	if (car_dest.y > jumpHeight && jumping) {
 		gravity = -8;
-		updateYPosition(); //no check for jumping while in the air --> double jump
+		updateYPosition(); //no check for jumping while in the air --> kind of double jump
 	}
-	if (car_dest.y == 430 && !jumping)
+	if (car_dest.y == groundPos && !jumping)
 	{
 		gravity = 0;
 		jumping = true;

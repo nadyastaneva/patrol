@@ -63,8 +63,8 @@ Rocks::Rocks(SDL_Renderer *renderer)
 	rmask = 0, gmask = 0, bmask = 0, amask = 0;
 
 	//destination of first rock
-	rock_dest.x = 850;
-	rock_dest.y = 530;
+	rock_dest.x = 1340;
+	rock_dest.y = 550;
 	rock_dest.w = 80;
 	rock_dest.h = 52;
 }

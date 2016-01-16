@@ -17,7 +17,6 @@ private:
 	SDL_Rect hole_src;	
 	Uint32 rmask, gmask, bmask, amask;
 
-
 public:
 	Hole(SDL_Renderer *renderer);
 	~Hole();
