@@ -7,3 +7,12 @@
 #include <windows.h>
 #include <sstream>
 #include "SDL_ttf.h"
+#include "SDL_mixer.h"
+
+#include "Source.h"
+#include "Car.h"
+#include "Background.h"
+#include "Hole.h"
+#include "Rocks.h"
+#include "Enemy.h"
+

@@ -70,20 +70,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Win7\Desktop\SDL2_ttf-2.0.13\include;C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL\include;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-new\include;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\include;C:\Users\nadya\Source\Repos\patrol\Project1\SDL2_image-2.0.0\include;C:\Users\nadya\Source\Repos\patrol\Project1\SDL-new\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Win7\Desktop\SDL2_ttf-2.0.13\lib\x86;C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-library\lib\win32;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\nadya\Source\Repos\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\nadya\Source\Repos\patrol\Project1\SDL-new\lib\win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Nicol\Documents\SDL\SDL2_mixer-2.0.1\include;C:\Users\Nicol\Documents\SDL\SDL2_image-2.0.0\include;C:\Users\Nicol\Documents\SDL\include;C:\Users\Win7\Desktop\SDL2_ttf-2.0.13\include;C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL\include;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-new\include;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\include;C:\Users\nadya\Source\Repos\patrol\Project1\SDL2_image-2.0.0\include;C:\Users\nadya\Source\Repos\patrol\Project1\SDL-new\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Nicol\Documents\SDL\SDL2_mixer-2.0.1\lib\x86;C:\Users\Nicol\Documents\SDL\SDL2_image-2.0.0\lib\x86;C:\Users\Nicol\Documents\SDL\lib\win32;C:\Users\Win7\Desktop\SDL2_ttf-2.0.13\lib\x86;C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-library\lib\win32;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\nadya\Source\Repos\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\nadya\Source\Repos\patrol\Project1\SDL-new\lib\win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>E:\_Patrol NBU Game\SDL\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\_Patrol NBU Game\SDL\lib\win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Nicol\Documents\SDL\SDL2_mixer-2.0.1\include;C:\Users\Nicol\Documents\SDL\SDL2_image-2.0.0\include;C:\Users\Nicol\Documents\SDL\include;E:\_Patrol NBU Game\SDL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Nicol\Documents\SDL\SDL2_mixer-2.0.1\lib\x86;C:\Users\Nicol\Documents\SDL\SDL2_image-2.0.0\lib\x86;C:\Users\Nicol\Documents\SDL\lib\win32;E:\_Patrol NBU Game\SDL\lib\win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Nicol\Documents\SDL\SDL2_mixer-2.0.1\include;C:\Users\Nicol\Documents\SDL\SDL2_image-2.0.0\include;C:\Users\Nicol\Documents\SDL\include;C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Nicol\Documents\SDL\SDL2_mixer-2.0.1\lib\x86;C:\Users\Nicol\Documents\SDL\SDL2_image-2.0.0\lib\x86;C:\Users\Nicol\Documents\SDL\lib\win32;C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Users\Win7\Desktop\SDL2_ttf-2.0.13\include;C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL\include;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-new\include;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL\include;C:\Users\Nick\Documents\SDL\include;C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Win7\Desktop\SDL2_ttf-2.0.13\lib\x86;C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-library\lib\win32;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;C:\Users\Nick\Documents\SDL\lib\win32;C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Nicol\Documents\SDL\SDL2_mixer-2.0.1\include;C:\Users\Nicol\Documents\SDL\SDL2_image-2.0.0\include;C:\Users\Nicol\Documents\SDL\include;C:\Users\Win7\Desktop\SDL2_ttf-2.0.13\include;C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL\include;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-new\include;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL2_image-2.0.0\include;C:\Users\Win7\Desktop\SDL\include;C:\Users\Nick\Documents\SDL\include;C:\Users\Nick\Documents\SDL Libraries\_SDL_INC;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Nicol\Documents\SDL\SDL2_mixer-2.0.1\lib\x86;C:\Users\Nicol\Documents\SDL\SDL2_image-2.0.0\lib\x86;C:\Users\Nicol\Documents\SDL\lib\win32;C:\Users\Win7\Desktop\SDL2_ttf-2.0.13\lib\x86;C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL-library\lib\win32;C:\Users\Ollie\Documents\GitHub\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;C:\Users\Nick\Documents\SDL\lib\win32;C:\Users\Nick\Documents\SDL Libraries\_SDL_LIBS;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -95,7 +95,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>C:\Users\nadya\Source\Repos\patrol\Project1\SDL2_image-2.0.0\lib\x86;C:\Users\nadya\Source\Repos\patrol\Project1\SDL-new\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
@@ -108,7 +108,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -126,7 +126,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>C:\Users\Win7\Desktop\SDL2_image-2.0.0\lib\x86;C:\Users\Win7\Desktop\SDL\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
@@ -143,7 +143,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>

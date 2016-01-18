@@ -1,11 +1,4 @@
-#include "Source.h"
-#include "Car.h"
-#include "Background.h"
-#include "Hole.h"
-#include "Rocks.h"
-#include "Enemy.h"
-#include <sstream>
-#include "SDL_ttf.h"
+#include "Header.h"
 
 using namespace std;
 
@@ -67,13 +60,26 @@ int main(int argc, char* argv[])
 	int window_height = 720;
 	int bg_width = 5120;
 
-	SDL_Init(SDL_INIT_VIDEO);
+	
+
+
+
+	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
 	int imgFlags = IMG_INIT_PNG;
 	if (!(IMG_Init(imgFlags) & imgFlags))
 		cout << "Error : " << IMG_GetError() << endl;
 
 	window = SDL_CreateWindow("Patrol NBU Project ", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window_width, window_height, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, 0);// SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
+	//Music & Sound Effects
+
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+		cout << "Error :" << Mix_GetError << endl;
+
+	Mix_Music *background = Mix_LoadMUS(" "); //for more than 10 secs
+	Mix_Chunk *jump = Mix_LoadWAV("jump.wav");
+	
 
 	// hole positions and counter
 	int holeXs[10] = { 2123, 2820, 3305, 4023, 4512, 5621, 6302, 6834, 8000, 8544 };
@@ -173,29 +179,28 @@ int main(int argc, char* argv[])
 		}
 
 		// collision check for holes
-		if ((car.car_dest.y + car.car_dest.h) >= hole.hole_dest.y + 15) // collision on Y-axis
+		if (car.car_dest.x + car.car_dest.w < hole.hole_dest.x || car.car_dest.x > hole.hole_dest.x + hole.hole_dest.w || car.car_dest.y + car.car_dest.h < hole.hole_dest.y || car.car_dest.y>hole.hole_dest.y + hole.hole_dest.h) // collision on Y-axis
 		{
-			if (car.car_dest.x <= hole.hole_dest.x && (car.car_dest.x + car.car_dest.w) >= hole.hole_dest.x) // collision on X-axis - front/top
-			{
-				// stop game; show score ---------------- TO BE FIXED
-			}
-			else if (car.car_dest.x <= (hole.hole_dest.x + hole.hole_dest.w) && (car.car_dest.x + car.car_dest.w) >= (hole.hole_dest.x + hole.hole_dest.w)) // collision on X-axis - back
-			{
-				// stop game; show score ---------------- TO BE FIXED
-			}
+			isRunning = true;
+		}
+		else {
+			
+			isRunning = false;
 		}
 		// collision check for rocks
-		if ((car.car_dest.y + car.car_dest.h) >= rock.rock_dest.y) // collision on Y-axis
+		if (car.car_dest.x + car.car_dest.w < rock.rock_dest.x || car.car_dest.x> rock.rock_dest.x + rock.rock_dest.w || car.car_dest.y + car.car_dest.h < rock.rock_dest.y || car.car_dest.y > rock.rock_dest.y) // collision on Y-axis
 		{
-			if (car.car_dest.x <= rock.rock_dest.x && (car.car_dest.x + car.car_dest.w) >= rock.rock_dest.x) // collision on X-axis - front/top
-			{
-				// stop game; show score ---------------- TO BE FIXED
-			}
-			else if (car.car_dest.x <= (rock.rock_dest.x + rock.rock_dest.w - 5) && (car.car_dest.x + car.car_dest.w) >= (rock.rock_dest.x + rock.rock_dest.w - 5)) // collision on X-axis - back
-			{
-				// stop game; show score ---------------- TO BE FIXED
-			}
+			isRunning = true;
 		}
+		else
+		{
+			
+			isRunning = false;
+		}
+
+
+
+
 		SDL_RenderPresent(renderer);
 		Sleep(50);
 
@@ -211,7 +216,10 @@ int main(int argc, char* argv[])
 					case SDLK_a: car.slower(); break;
 					case SDLK_RIGHT: car.faster(); break;
 					case SDLK_d: car.faster(); break;
-					case SDLK_UP: car.jump(); break;
+					case SDLK_UP: car.jump(); 
+						
+						Mix_PlayChannel(-1, jump, 0);
+						break;
 					case SDLK_w: car.jump(); break;
 					case SDLK_ESCAPE: quitLoop = true; break;
 					default:break;
@@ -224,6 +232,12 @@ int main(int argc, char* argv[])
 		}
 
 	}
+
+
+	Mix_Quit();
+	Mix_FreeChunk(jump);
+	//Mix_FreeMusic();
+
 
 	showscore(renderer, window_width, window_height);
 	quit(&car, renderer, window, &bg, &hole, &rock, &enemy);
