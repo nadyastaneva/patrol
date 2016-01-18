@@ -79,6 +79,7 @@ int main(int argc, char* argv[])
 
 	Mix_Music *background = Mix_LoadMUS(" "); //for more than 10 secs
 	Mix_Chunk *jump = Mix_LoadWAV("jump.wav");
+	Mix_Chunk *explosion = Mix_LoadWAV("explosion.wav");
 	
 
 	// hole positions and counter
@@ -179,25 +180,33 @@ int main(int argc, char* argv[])
 		}
 
 		// collision check for holes
-		if (car.car_dest.x + car.car_dest.w < hole.hole_dest.x || car.car_dest.x > hole.hole_dest.x + hole.hole_dest.w || car.car_dest.y + car.car_dest.h < hole.hole_dest.y || car.car_dest.y>hole.hole_dest.y + hole.hole_dest.h) // collision on Y-axis
+		if ((car.car_dest.y + car.car_dest.h) >= hole.hole_dest.y + 10) // collision on Y-axis
 		{
-			isRunning = true;
-		}
-		else {
-			
-			isRunning = false;
+			if (car.car_dest.x <= hole.hole_dest.x && (car.car_dest.x + car.car_dest.w) >= hole.hole_dest.x + 10) // collision on X-axis - front/top
+			{   
+				Mix_PlayChannel(-1, explosion, 0);
+				isRunning = false;
+			}
+			else if (car.car_dest.x <= (hole.hole_dest.x + hole.hole_dest.w) && (car.car_dest.x + car.car_dest.w) >= (hole.hole_dest.x + hole.hole_dest.w)) // collision on X-axis - back
+			{
+				Mix_PlayChannel(-1, explosion, 0);
+				isRunning = false;
+			}
 		}
 		// collision check for rocks
-		if (car.car_dest.x + car.car_dest.w < rock.rock_dest.x || car.car_dest.x> rock.rock_dest.x + rock.rock_dest.w || car.car_dest.y + car.car_dest.h < rock.rock_dest.y || car.car_dest.y > rock.rock_dest.y) // collision on Y-axis
+		if ((car.car_dest.y + car.car_dest.h) >= rock.rock_dest.y) // collision on Y-axis
 		{
-			isRunning = true;
+			if (car.car_dest.x <= rock.rock_dest.x && (car.car_dest.x + car.car_dest.w) >= rock.rock_dest.x + 10) // collision on X-axis - front/top
+			{
+				Mix_PlayChannel(-1, explosion, 0);
+				isRunning = false;
+			}
+			else if (car.car_dest.x <= (rock.rock_dest.x + rock.rock_dest.w - 5) && (car.car_dest.x + car.car_dest.w) >= (rock.rock_dest.x + rock.rock_dest.w - 5)) // collision on X-axis - back
+			{
+				Mix_PlayChannel(-1, explosion, 0);
+				isRunning = false;
+			}
 		}
-		else
-		{
-			
-			isRunning = false;
-		}
-
 
 
 
